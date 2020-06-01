@@ -1,26 +1,26 @@
 import React from 'react'
-import { Cards, Charts, CountryPicker } from './components'
-import { fetchData } from './api'
-import styles from './App.module.css'
+import { Route, Switch, useLocation } from 'react-router-dom'
 
-class App extends React.Component {
-    state = {
-        data: {}
+import Covid from './pages/Covid'
+import About from './pages/About'
+import { TabNavigate } from './components'
+
+class App extends React.Component {    
+    constructor(props) {
+        super(props)
+        this.path = window.location.pathname
     }
-
-    async componentDidMount() {
-        const fetchedData = await fetchData()
-        this.setState({ data: fetchedData })
-    }
-
     render() {
-        const { data } = this.state
+        const path = this.path
         return (
-            <div className={styles.container}>
-                <Cards data={data} />
-                <Charts /> 
-                <CountryPicker />
+            <div>
+                <TabNavigate path={path}/>
+                <Switch>
+                    <Route component={Covid} exact path={'/'} />
+                    <Route component={About} exact path={'/about'} />
+                </Switch>
             </div>
+
         )
     }
 }

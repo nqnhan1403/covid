@@ -1,11 +1,50 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import {
+    NativeSelect,
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Select,
+} from "@material-ui/core";
 
-import styles from './CountryPicker.module.css'
+import { fetchCountries } from "../../api";
 
-const CountryPicker = () => {
+import styles from "./CountryPicker.module.css";
+
+const CountryPicker = (props) => {
+    const [fetchedCountries, setFetchedCountries] = useState([]);
+    const [currentCountry, setCurrentCountry] = useState('Global')
+
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setFetchedCountries(await fetchCountries());
+        };
+        fetchAPI();
+    }, [setFetchedCountries]);
+
+    var handleCountryChange = country => {        
+        setCurrentCountry(country)
+        props.handleCountryChange(country)        
+    }
     return (
-        <h1>CountryPicker</h1>
-    )
-}
+        <FormControl className={styles.formControl}>
+            <span className={styles.label}>{currentCountry.toUpperCase()}</span>
+            <Select
+                labelId="demo-simple-select-outlined-label"
+                id="demo-simple-select-outlined"
+                value=''
+                className={styles.customSelect}
+                onChange={(e) => handleCountryChange(e.target.value)}
+                label="Country"
+            >
+                {fetchedCountries.map((country, i) => (
+                    <MenuItem key={i} value={country}>
+                        {country.toUpperCase()}
+                    </MenuItem>
+                ))}
+            </Select>
+        </FormControl>
+    );
+};
 
-export default CountryPicker
+export default CountryPicker;

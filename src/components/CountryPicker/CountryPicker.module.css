@@ -1,0 +1,47 @@
+.formControl {
+    width: 83%;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    margin: 1% 0px !important;
+    padding: 10px !important;
+    background-color: white !important;
+    border-radius: 15px !important;
+    position: relative;
+}
+
+.label {
+    font-family: Montserrat;
+    font-weight: 700;
+    position: absolute;
+    top: 17px;
+    left: 15px;
+    pointer-events: none;
+    color: #444;
+}
+
+.customSelect::before {
+    border-bottom: white !important;
+}
+
+
+.customSelect::after {
+    border-bottom: white !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .formControl {
+        width: 83%;
+        margin: 3% 0px !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .formControl {
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 1150px) {
+    .formControl {
+        width: 944px;
+        margin: 13px 0 !important;
+    }
+}
