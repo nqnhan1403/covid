@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Covid from './pages/Covid'
 import About from './pages/About'

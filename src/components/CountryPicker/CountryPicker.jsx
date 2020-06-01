@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-    NativeSelect,
     FormControl,
-    InputLabel,
     MenuItem,
     Select,
 } from "@material-ui/core";
