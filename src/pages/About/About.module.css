@@ -149,9 +149,30 @@
 @media only screen and (max-width: 500px) {
     .nameActive {
         font-size: 45px;
+        top: 200px;
     }
     .skillActive {
-        top: 350px;
+        top: 250px;
         font-size: 1.25em;
+    }
+    @keyframes nameFadeIn {
+        0% {
+            opacity: 0;
+            top: 50%;
+            margin-top: -0.5em;
+            left: auto;
+        }
+        50% {
+            opacity: 1;
+            top: 50%;
+            margin-top: -0.5em;
+            left: auto;
+        }
+        100% {
+            opacity: 1;
+            top: 200px;
+            margin-top: 0;
+            left: auto;
+        }
     }
 }
