@@ -7,8 +7,8 @@
     position: relative;   
     perspective: 50px;
     overflow: hidden;
-    color: white;
-    background-color: black;
+    /* color: white;
+    background-color: black; */
     /* animation: retroRainbow infinite 16s ; */    
 }
 

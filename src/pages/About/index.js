@@ -1,8 +1,8 @@
 import React from 'react'
 
 import styles from './About.module.css'
-import education from '../../assets/education.png'
-import experience from '../../assets/experience.png'
+// import education from '../../assets/education.png'
+// import experience from '../../assets/experience.png'
 
 class About extends React.Component {
     state = {
