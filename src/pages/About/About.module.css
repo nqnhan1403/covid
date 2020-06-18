@@ -1,7 +1,114 @@
 .aboutContainer {
     user-select: none;
-    width: 100vw;
-    background-image: radial-gradient( circle 200em at -5.8% 1.8%,  rgba(255,255,255,1) 0%, rgba(214, 169, 250, 0.486) 100.3% );
+    width: 100vw;   
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    position: relative;   
+    perspective: 50px;
+    overflow: hidden;
+    color: white;
+    background-color: black;
+    /* animation: retroRainbow infinite 16s ; */    
+}
+
+.frame{ 
+ width: 1000px;
+ height: 1000px;
+ position: absolute;
+ border-radius: 50%;
+ border: 5px solid #1ec1e2;
+ box-shadow: 0px 0px 20px #1ec1e2, inset 0px 0px 20px #1ec1e2,
+ 0px 0px 60px #fc00ff, inset 0px 0px 60px #fc00ff;  
+ filter: brightness(1.5) contrast(3);     
+ animation: breath 4s ease-out infinite;
+}
+
+.frame:nth-child(1) {
+    transform: scale(1,1);
+    opacity: 1;
+    animation-delay: 0.2s;
+}
+.frame:nth-child(2) {
+    transform: scale(0.9,0.9);
+    opacity: 0.9;
+    animation-delay: 0.4s;
+}
+.frame:nth-child(3) {
+    transform: scale(0.8,0.8);
+    opacity: 0.8;
+    animation-delay: 0.6s;
+}
+.frame:nth-child(4) {
+    transform: scale(0.7,0.7);
+    opacity: 0.7;
+    animation-delay: 0.8s;
+}
+.frame:nth-child(5) {
+    transform: scale(0.6,0.6);
+    opacity: 0.6;
+    animation-delay: 1s;
+}
+.frame:nth-child(6) {
+    transform: scale(0.5,0.5);
+    opacity: 0.5;
+    animation-delay: 1.2s;
+}
+.frame:nth-child(7) {
+    transform: scale(0.4,0.4);
+    opacity: 0.4;
+    animation-delay: 1.4s;
+}
+.frame:nth-child(8) {
+    transform: scale(0.3,0.3);
+    opacity: 0.3;
+    animation-delay: 1.6s;
+}
+.frame:nth-child(9) {
+    transform: scale(0.2,0.2);
+    opacity: 0.2;
+    animation-delay: 1.8;
+}
+.frame:nth-child(10) {
+    transform: scale(0.1,0.1);
+    opacity: 0.1;
+    animation-delay: 2s;
+}
+@keyframes breath {
+    0% {
+        filter: contrast(2) brightness(3);
+    }
+    50% {
+        filter: contrast(1) brightness(1);
+    }
+    100% {
+        filter: contrast(2) brightness(3);
+    }
+}
+    
+@keyframes retroRainbow {
+    0% {
+        background-color: rgba(216, 215, 185,0.2)
+    }
+    17% {
+        background-color: rgba(205, 171, 129,0.2)
+    }
+    34% {
+        background-color: rgba(193, 126, 155,0.2)
+    }
+    57% {
+        background-color: rgba(110, 107, 159,0.2)
+    }
+    74% {
+        background-color: rgba(115, 151, 170,0.2)
+    }
+    87% {
+        background-color: rgba(135, 177, 145,0.2)
+    }
+    100% {
+        background-color: rgba(216, 215, 185,0.2)
+    }
+    
 }
 .briefContainer {
     width: 100vw;
@@ -12,6 +119,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 10;
 }
 
 .nameActive {
@@ -71,13 +179,12 @@
 }
 
 .educationContainer {
-    width: 100vw;
+    width: 80vw;
     height: 100vh;
     font-family: Montserrat;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: relative;    
 }
 
 .educationIllustration {
@@ -85,26 +192,25 @@
     display: flex;
     justify-content: center ;
     align-items: center;
-    width: 60%;
+    width: 50%;
 }
 
 .educationList {
     margin-right: 10px;
     user-select: none;
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
 }
 
 .experienceContainer {
-    width: 100vw;
+    width: 80vw;
     height: 100vh;
     font-family: Montserrat;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    position: relative;
+    align-items: center;   
 }
 
 .experienceIllustration {
@@ -117,24 +223,48 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    align-items: center;
+}
+
+.educationTimeline {
+    margin-left: 10em;
+    border-left: solid 0.25em #6c63ff;
+    border-radius: 0.5em;
 }
 
 .event {
     display: flex;
     min-width: 20em;
     width: 100%;    
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 0;
+    position: relative;
+}
+.content {
+    margin: 2px 0px;
 }
 
-.educationTimeline {
-    border-radius: 0.5em;
-    margin-left: 10em;
-    border-left: solid 0.25em red;
-}
-
-.eventTime {
+.dot {
+    height: 15px;
+    width: 15px;
     position: absolute;
-    top: 0;
-    left: 0;
+    left: -53px;
+    top: 17px;
+    border-radius: 50%;    
+    background-color: white;
+    border: #f55f44 solid 4px;
+}
+
+.time {
+    position: absolute;
+    left: -190px;
+    top: 17px;
+    font-weight: bold;
+}
+
+.description {
+    color: #333 ;
 }
 
 @media only screen and (max-width: 800px) {
